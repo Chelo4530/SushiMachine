@@ -1,0 +1,17 @@
+{% extends 'catalog/index.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if pedido.hora %}
+            <div class="hora">
+                {{ pedido.hora }}
+            </div>
+        {% endif %}
+    {% if user.is_authenticated %}
+    <a class="btn btn-default" href="{% url 'pedido_edit' pk=pedido.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    {% endif %}
+        <p>{{ pedido.nombre }}</p>
+        <h2>{{ pedido.sushi }}</h2>
+        <p>{{ pedido.direccion|linebreaksbr }}</p>
+    </div>
+{% endblock %}

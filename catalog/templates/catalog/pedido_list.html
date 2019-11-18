@@ -1,0 +1,13 @@
+{% extends 'catalog/index.html' %}
+
+{% block content %}
+    {% for pedido in pedidos %}
+        <div class="pedido">
+            <div class="hora">
+                {{ pedido.hora }}
+            </div>
+            <h2><a href="{% url 'pedido_detail' pk=pedido.pk %}">{{ pedido.sushi }}</a></h2>
+            <p>{{ pedido.direccion|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
