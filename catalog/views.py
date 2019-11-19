@@ -14,13 +14,14 @@ def pedido_detail(request, pk):
     return render(request, 'catalog/pedido_detail.html', {'pedido': pedido})
 
 def pedido_new(request):
-    if request.method == "PEDIDO":
-        form = PedidoForm(request.PEDIDO)
+    if request.method == "POST":
+        form = PedidoForm(request.POST)
         if form.is_valid():
             pedido = form.save(commit=False)
-            pedido.nombre()
-            pedido.sushi()
-            pedido.direccion()
+            pedido.nombre = request.user
+            pedido.sushi
+            pedido.email
+            pedido.direccion
             pedido.hora = timezone.now()
             pedido.save()
             return redirect('pedido_detail', pk=pedido.pk)
@@ -30,13 +31,11 @@ def pedido_new(request):
 
 def pedido_edit(request, pk):
     pedido = get_object_or_404(Pedido, pk=pk)
-    if request.method == "PEDIDO":
-        form = PedidoForm(request.PEDIDO, instance=pedido)
+    if request.method == "POST":
+        form = PedidoForm(request.POST, instance=post)
         if form.is_valid():
             pedido = form.save(commit=False)
-            pedido.nombre()
-            pedido.sushi()
-            pedido.direccion()
+            pedido.nombre = request.user
             pedido.hora = timezone.now()
             pedido.save()
             return redirect('pedido_detail', pk=pedido.pk)

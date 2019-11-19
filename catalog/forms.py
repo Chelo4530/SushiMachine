@@ -5,4 +5,4 @@ class PedidoForm(forms.ModelForm):
 
     class Meta:
         model = Pedido
-        fields = ('nombre', 'sushi', 'email', 'direccion',)
+        fields = ('nombre', 'sushi', 'email', 'direccion','hora',)

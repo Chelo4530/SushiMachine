@@ -2,10 +2,10 @@ from django.db import models
 from django.utils import timezone
 
 class Pedido(models.Model):
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=70)
     sushi = models.CharField(max_length=200)
-    email = models.CharField(max_length=100)
-    direccion = models.TextField()
+    email = models.EmailField(max_length=100)
+    direccion = models.CharField(max_length=100)
     hora = models.DateTimeField(
         blank=True, null=True)
 

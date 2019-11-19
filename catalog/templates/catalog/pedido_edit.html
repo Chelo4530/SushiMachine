@@ -1,9 +1,9 @@
 {% extends 'catalog/index.html' %}
 
 {% block content %}
-    <h2>Nuevo pedido</h2>
+    <h2>Nuevo Pedido</h2>
     <form method="PEDIDO" class="pedido-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type="submit" class="save btn btn-default">Pedir</button>
     </form>
 {% endblock %}
